@@ -1,0 +1,5 @@
+com/ueg/web/SpringWebUegApplication.class
+com/ueg/web/controller/FilmeController.class
+com/ueg/web/model/Filme.class
+com/ueg/web/repository/FilmeRepository.class
+com/ueg/web/exception/ResourceNotFoundException.class

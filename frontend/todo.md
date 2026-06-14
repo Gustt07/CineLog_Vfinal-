@@ -1,0 +1,21 @@
+# CineLog - Diário de Filmes e Séries TODO
+
+- [x] Firebase Auth (login/cadastro com email e senha)
+- [x] Tela de Login com redirecionamento
+- [x] Tela de Cadastro
+- [x] Tela principal - Lista de filmes com cards
+- [x] Tela de Favoritos
+- [x] Formulário de adicionar/editar filme
+- [x] CRUD completo (listar, consultar, inserir, alterar, excluir)
+- [x] Sistema de notas com estrelas (1-5)
+- [x] Toggle Finalizado/Assistindo
+- [x] Campo de comentário
+- [x] URL de capa com preview
+- [x] Botão de favoritar (coração)
+- [x] Pull-to-refresh na lista
+- [x] Botão FAB para adicionar novo filme
+- [x] Botão de logout
+- [x] Backend Java - Filme.java (modelo)
+- [x] Backend Java - FilmeRepository.java
+- [x] Backend Java - FilmeController.java (CRUD REST)
+- [x] Logo personalizada do app
