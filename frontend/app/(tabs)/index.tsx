@@ -9,6 +9,7 @@ import {
   RefreshControl,
   Image,
   TextInput,
+  Platform,
 } from "react-native";
 import { router, useFocusEffect } from "expo-router";
 import { ScreenContainer } from "@/components/screen-container";
@@ -136,16 +137,34 @@ export default function HomeScreen() {
     }
   };
 
+  const fazerLogout = async () => {
+    try {
+      await logout();
+      router.replace("/login" as any);
+    } catch (error) {
+      if (Platform.OS === "web" && typeof window !== "undefined") {
+        window.alert("Erro: Não foi possível sair da conta.");
+      } else {
+        Alert.alert("Erro", "Não foi possível sair da conta.");
+      }
+    }
+  };
+
   const handleLogout = () => {
+    if (Platform.OS === "web" && typeof window !== "undefined") {
+      const confirmou = window.confirm("Deseja sair da sua conta?");
+      if (confirmou) {
+        fazerLogout();
+      }
+      return;
+    }
+
     Alert.alert("Sair", "Deseja sair da sua conta?", [
       { text: "Cancelar", style: "cancel" },
       {
         text: "Sair",
         style: "destructive",
-        onPress: async () => {
-          await logout();
-          router.replace("/login" as any);
-        },
+        onPress: fazerLogout,
       },
     ]);
   };

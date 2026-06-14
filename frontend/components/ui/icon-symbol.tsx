@@ -23,6 +23,7 @@ const MAPPING = {
   "film.fill": "movie",
   "star.fill": "star",
   "heart.fill": "favorite",
+  "magnifyingglass": "explore",
   "plus": "add",
 } as IconMapping;
 
