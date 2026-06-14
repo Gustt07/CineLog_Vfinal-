@@ -96,7 +96,7 @@ export default function OAuthCallback() {
         if (error) {
           console.error("[OAuth] Error parameter found:", error);
           setStatus("error");
-          setErrorMessage(error || "OAuth error occurred");
+          setErrorMessage(error || "Ocorreu um erro na autenticação.");
           return;
         }
 
@@ -171,7 +171,7 @@ export default function OAuthCallback() {
             hasState: !!state,
           });
           setStatus("error");
-          setErrorMessage("Missing code or state parameter");
+          setErrorMessage("Código ou estado de autenticação ausente.");
           return;
         }
 
@@ -220,13 +220,13 @@ export default function OAuthCallback() {
         } else {
           console.error("[OAuth] No session token in result:", result);
           setStatus("error");
-          setErrorMessage("No session token received");
+          setErrorMessage("Nenhum token de sessão foi recebido.");
         }
       } catch (error) {
         console.error("[OAuth] Callback error:", error);
         setStatus("error");
         setErrorMessage(
-          error instanceof Error ? error.message : "Failed to complete authentication",
+          error instanceof Error ? error.message : "Não foi possível concluir a autenticação.",
         );
       }
     };
@@ -241,24 +241,24 @@ export default function OAuthCallback() {
           <>
             <ActivityIndicator size="large" />
             <Text className="mt-4 text-base leading-6 text-center text-foreground">
-              Completing authentication...
+              Concluindo autenticação...
             </Text>
           </>
         )}
         {status === "success" && (
           <>
             <Text className="text-base leading-6 text-center text-foreground">
-              Authentication successful!
+              Autenticação concluída.
             </Text>
             <Text className="text-base leading-6 text-center text-foreground">
-              Redirecting...
+              Redirecionando...
             </Text>
           </>
         )}
         {status === "error" && (
           <>
             <Text className="mb-2 text-xl font-bold leading-7 text-error">
-              Authentication failed
+              Falha na autenticação
             </Text>
             <Text className="text-base leading-6 text-center text-foreground">
               {errorMessage}

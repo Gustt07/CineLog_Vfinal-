@@ -28,7 +28,7 @@ export const buildTmdbPosterUrl = (posterPath?: string | null) => {
 
 export const getTmdbMovieYear = (releaseDate?: string) => {
   if (!releaseDate) {
-    return "Ano indisponivel";
+    return "Ano indisponível";
   }
 
   return releaseDate.slice(0, 4);

@@ -3,12 +3,11 @@ import {
   Text,
   View,
   FlatList,
-  TouchableOpacity,
   ActivityIndicator,
   RefreshControl,
   Image,
 } from "react-native";
-import { router, useFocusEffect } from "expo-router";
+import { useFocusEffect } from "expo-router";
 import { ScreenContainer } from "@/components/screen-container";
 import { listarFilmes, type Filme } from "@/lib/api";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
@@ -37,7 +36,7 @@ export default function FavoritosScreen() {
   );
 
   const formatDate = (dateStr: string) => {
-    return dateStr || "—";
+    return dateStr || "-";
   };
 
   const renderStars = (nota: number) => {

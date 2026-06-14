@@ -22,7 +22,7 @@ export default function LoginScreen() {
 
   const handleLogin = async () => {
     if (!email.trim() || !senha.trim()) {
-      Alert.alert("Erro", "Preencha todos os campos!");
+      Alert.alert("Erro", "Preencha todos os campos.");
       return;
     }
 

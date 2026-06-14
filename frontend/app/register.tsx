@@ -24,12 +24,12 @@ export default function RegisterScreen() {
 
   const handleRegister = async () => {
     if (!nome.trim() || !email.trim() || !senha || !confirmarSenha) {
-      Alert.alert("Erro", "Preencha todos os campos!");
+      Alert.alert("Erro", "Preencha todos os campos.");
       return;
     }
 
     if (senha !== confirmarSenha) {
-      Alert.alert("Erro", "As senhas não coincidem!");
+      Alert.alert("Erro", "As senhas não coincidem.");
       return;
     }
 
@@ -41,7 +41,7 @@ export default function RegisterScreen() {
     setLoading(true);
     try {
       await register(email.trim(), senha);
-      Alert.alert("Sucesso", "Conta criada com sucesso!", [
+      Alert.alert("Sucesso", "Conta criada com sucesso.", [
         { text: "OK", onPress: () => router.replace("/(tabs)") },
       ]);
     } catch (error: any) {
@@ -53,7 +53,7 @@ export default function RegisterScreen() {
       } else if (error?.code === "auth/invalid-email") {
         msg = "E-mail inválido.";
       } else {
-        msg = error?.message || error?.code || "Erro desconhecido";
+        msg = error?.message || error?.code || "Erro desconhecido.";
       }
       Alert.alert("Erro", msg);
     } finally {
@@ -73,7 +73,7 @@ export default function RegisterScreen() {
         >
           <View className="flex-1 justify-center px-8">
             <View className="items-center mb-10">
-              <Text className="text-3xl font-bold text-primary">Criar Conta</Text>
+              <Text className="text-3xl font-bold text-primary">Criar conta</Text>
               <Text className="text-base text-muted mt-2">
                 Cadastre-se no CineLog
               </Text>
@@ -126,7 +126,7 @@ export default function RegisterScreen() {
 
               <View>
                 <Text className="text-sm font-medium text-foreground mb-1">
-                  Confirmar Senha
+                  Confirmar senha
                 </Text>
                 <TextInput
                   className="bg-surface border border-border rounded-xl px-4 py-3 text-foreground"

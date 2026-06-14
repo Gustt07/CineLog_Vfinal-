@@ -89,7 +89,7 @@ export default function HomeScreen() {
       setFilmes(data);
     } catch (error) {
       console.log("Erro ao carregar filmes:", error);
-      setFilmes([]); // Garante que a lista não fique travada
+      setFilmes([]);
     } finally {
       setLoading(false);
       setRefreshing(false);
@@ -109,7 +109,7 @@ export default function HomeScreen() {
   }, [user, authLoading]);
 
   const handleDelete = (id: number) => {
-    Alert.alert("Excluir Filme", "Tem certeza que deseja excluir?", [
+    Alert.alert("Excluir filme", "Tem certeza que deseja excluir?", [
       { text: "Cancelar", style: "cancel" },
       {
         text: "Excluir",
@@ -151,7 +151,7 @@ export default function HomeScreen() {
   };
 
   const formatDate = (dateStr: string) => {
-    return dateStr || "—";
+    return dateStr || "-";
   };
 
   const renderStars = (nota: number) => {
@@ -185,7 +185,7 @@ export default function HomeScreen() {
           <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 6 }}>
             <MaterialIcons name="star" size={18} color="#F59E0B" />
             <Text className="text-muted text-xs font-semibold" style={{ marginLeft: 6 }}>
-              Media
+              Média
             </Text>
           </View>
           <Text className="text-foreground text-2xl font-bold">
@@ -199,7 +199,7 @@ export default function HomeScreen() {
           <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 6 }}>
             <MaterialIcons name="calendar-month" size={18} color="#22C55E" />
             <Text className="text-muted text-xs font-semibold" style={{ marginLeft: 6 }}>
-              Mes atual
+              Mês atual
             </Text>
           </View>
           <Text className="text-foreground text-2xl font-bold">{dashboardStats.mesAtual}</Text>
@@ -221,7 +221,7 @@ export default function HomeScreen() {
         <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 12 }}>
           <MaterialIcons name="bar-chart" size={20} color="#2563EB" />
           <Text className="text-foreground font-bold text-base" style={{ marginLeft: 8 }}>
-            Distribuicao de notas
+            Distribuição de notas
           </Text>
         </View>
 
@@ -360,7 +360,7 @@ export default function HomeScreen() {
     <ScreenContainer className="flex-1">
       <View className="flex-row justify-between items-center px-4 pb-3">
         <View>
-          <Text className="text-2xl font-bold text-foreground">Meu Diário</Text>
+          <Text className="text-2xl font-bold text-foreground">Meu diário</Text>
           <Text className="text-sm text-muted">
             {searchTerm.trim()
               ? `${filmesFiltrados.length} de ${filmes.length} filme${filmes.length !== 1 ? "s" : ""}`

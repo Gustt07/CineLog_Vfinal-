@@ -46,7 +46,7 @@ export default function ExplorarScreen() {
       const data = await listarFilmesPopularesTmdb();
       setFilmes(data);
     } catch (err) {
-      setError("Nao foi possivel carregar os filmes em alta.");
+      setError("Não foi possível carregar os filmes em alta.");
     } finally {
       setLoading(false);
       setRefreshing(false);

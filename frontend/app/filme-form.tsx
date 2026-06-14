@@ -23,11 +23,10 @@ import {
   type TmdbMovieSuggestion,
 } from "@/lib/tmdb";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-import * as ImagePicker from 'expo-image-picker';
+import * as ImagePicker from "expo-image-picker";
 
-// Função auxiliar para alertas que funcionam na Web
 const universalAlert = (title: string, message: string, onOk?: () => void) => {
-  if (Platform.OS === 'web') {
+  if (Platform.OS === "web") {
     window.alert(`${title}: ${message}`);
     if (onOk) onOk();
   } else {
@@ -65,8 +64,8 @@ export default function FilmeFormScreen() {
       loadFilme(parseInt(id));
     } else {
       const hoje = new Date();
-      const dia = String(hoje.getDate()).padStart(2, '0');
-      const mes = String(hoje.getMonth() + 1).padStart(2, '0');
+      const dia = String(hoje.getDate()).padStart(2, "0");
+      const mes = String(hoje.getMonth() + 1).padStart(2, "0");
       const ano = hoje.getFullYear();
       setDataAssistida(`${dia}/${mes}/${ano}`);
 
@@ -106,7 +105,7 @@ export default function FilmeFormScreen() {
       } catch (error) {
         if (active) {
           setTmdbSuggestions([]);
-          setTmdbError("Nao foi possivel buscar filmes no TMDB agora.");
+          setTmdbError("Não foi possível buscar filmes no TMDB agora.");
         }
       } finally {
         if (active) {
@@ -140,15 +139,15 @@ export default function FilmeFormScreen() {
   };
 
   const pickImage = async () => {
-    if (Platform.OS === 'web') {
+    if (Platform.OS === "web") {
       const url = window.prompt("Cole a URL da imagem:");
       if (url) setCapaUrl(url);
       return;
     }
 
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
-    if (status !== 'granted') {
-      universalAlert('Permissão necessária', 'Precisamos de permissão para acessar sua galeria.');
+    if (status !== "granted") {
+      universalAlert("Permissão necessária", "Precisamos de permissão para acessar sua galeria.");
       return;
     }
 
@@ -194,14 +193,14 @@ export default function FilmeFormScreen() {
       if (isEditing && id) {
         filmeData.id = parseInt(id);
         await alterarFilme(parseInt(id), filmeData);
-        universalAlert("Sucesso", "Filme atualizado!", () => router.replace("/"));
+        universalAlert("Sucesso", "Filme atualizado.", () => router.replace("/"));
       } else {
         await inserirFilme(filmeData);
-        universalAlert("Sucesso", "Filme adicionado!", () => router.replace("/"));
+        universalAlert("Sucesso", "Filme adicionado.", () => router.replace("/"));
       }
     } catch (error: any) {
       console.error(error);
-      universalAlert("Erro ao Salvar", "Verifique se o backend está rodando em http://127.0.0.1:8080");
+      universalAlert("Erro ao salvar", "Verifique se o backend está rodando em http://127.0.0.1:8080.");
     } finally {
       setLoading(false);
     }
@@ -224,7 +223,7 @@ export default function FilmeFormScreen() {
               <MaterialIcons name="arrow-back" size={24} color="#2563EB" />
             </TouchableOpacity>
             <Text className="text-2xl font-bold text-foreground" style={{ marginLeft: 12 }}>
-              {isEditing ? "Editar Filme" : "Novo Filme"}
+              {isEditing ? "Editar filme" : "Novo filme"}
             </Text>
           </View>
 
@@ -289,13 +288,13 @@ export default function FilmeFormScreen() {
               ) : (
                 <View style={{ width: 140, height: 210, borderRadius: 12, backgroundColor: "#334155", alignItems: "center", justifyContent: "center" }}>
                   <MaterialIcons name="add-a-photo" size={40} color="#94A3B8" />
-                  <Text style={{ color: "#94A3B8", marginTop: 8, fontSize: 12 }}>Adicionar Capa</Text>
+                  <Text style={{ color: "#94A3B8", marginTop: 8, fontSize: 12 }}>Adicionar capa</Text>
                 </View>
               )}
             </TouchableOpacity>
           </View>
 
-          <Text className="text-sm font-medium text-foreground mb-1">URL da Capa</Text>
+          <Text className="text-sm font-medium text-foreground mb-1">URL da capa</Text>
           <TextInput
             className="bg-surface border border-border rounded-xl px-4 py-3 text-foreground mb-4"
             value={capaUrl}
@@ -305,7 +304,7 @@ export default function FilmeFormScreen() {
             autoCapitalize="none"
             autoCorrect={false}
           />
-          
+
           <Text className="text-sm font-medium text-foreground mb-1">Título</Text>
           <TextInput className="bg-surface border border-border rounded-xl px-4 py-3 text-foreground mb-4" value={titulo} onChangeText={setTitulo} />
 
@@ -318,7 +317,7 @@ export default function FilmeFormScreen() {
             ))}
           </View>
 
-          <Text className="text-sm font-medium text-foreground mb-1">Data Assistida (DD/MM/AAAA)</Text>
+          <Text className="text-sm font-medium text-foreground mb-1">Data assistida (DD/MM/AAAA)</Text>
           <TextInput className="bg-surface border border-border rounded-xl px-4 py-3 text-foreground mb-4" value={dataAssistida} onChangeText={setDataAssistida} />
 
           <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
@@ -330,7 +329,7 @@ export default function FilmeFormScreen() {
           <TextInput className="bg-surface border border-border rounded-xl px-4 py-3 text-foreground mb-4" value={comentario} onChangeText={setComentario} multiline numberOfLines={3} style={{ minHeight: 80, textAlignVertical: "top" }} />
 
           <TouchableOpacity style={{ backgroundColor: "#2563EB", borderRadius: 12, paddingVertical: 16, alignItems: "center", marginTop: 8 }} onPress={handleSubmit} disabled={loading}>
-            {loading ? <ActivityIndicator color="#fff" /> : <Text style={{ color: "#fff", fontWeight: "bold", fontSize: 16 }}>{isEditing ? "Salvar Alterações" : "Adicionar Filme"}</Text>}
+            {loading ? <ActivityIndicator color="#fff" /> : <Text style={{ color: "#fff", fontWeight: "bold", fontSize: 16 }}>{isEditing ? "Salvar alterações" : "Adicionar filme"}</Text>}
           </TouchableOpacity>
         </ScrollView>
       </KeyboardAvoidingView>

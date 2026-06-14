@@ -2,14 +2,14 @@ import axios from "axios";
 import { Platform } from "react-native";
 import Constants from "expo-constants";
 
-// Pega o IP do computador que está rodando o Expo automaticamente
+// Pega o IP do computador que está rodando o Expo automaticamente.
 const getBaseUrl = () => {
-  // Se estiver na Web, usa localhost
+  // Se estiver na Web, usa localhost.
   if (Platform.OS === "web") {
     return "http://localhost:8080/fcontroller";
   }
 
-  // Se estiver no celular (Expo Go), tenta pegar o IP do host
+  // Se estiver no celular com Expo Go, tenta pegar o IP do host.
   const debuggerHost = Constants.expoConfig?.hostUri;
   const ip = debuggerHost?.split(":")[0];
 
@@ -17,7 +17,7 @@ const getBaseUrl = () => {
     return `http://${ip}:8080/fcontroller`;
   }
 
-  // Fallback para emulador Android
+  // Fallback para emulador Android.
   return "http://10.0.2.2:8080/fcontroller";
 };
 
@@ -49,7 +49,7 @@ export async function listarFilmes(): Promise<Filme[]> {
     const response = await api.get<Filme[]>("/filmes");
     return response.data || [];
   } catch (error) {
-    console.error("Erro API Listar:", error);
+    console.error("Erro ao listar filmes:", error);
     return [];
   }
 }
