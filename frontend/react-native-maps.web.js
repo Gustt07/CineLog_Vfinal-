@@ -1,4 +1,4 @@
-// Stub for react-native-maps on web platform
+// Versao simplificada do react-native-maps para a plataforma web.
 import React from "react";
 import { View } from "react-native";
 
