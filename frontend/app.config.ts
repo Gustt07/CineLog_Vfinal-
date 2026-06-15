@@ -1,32 +1,12 @@
 import "./scripts/load-env.js";
 import type { ExpoConfig } from "expo/config";
 
-
-const rawBundleId = "com.app.gym_app_mobile";
-const bundleId =
-  rawBundleId
-    .replace(/[-_]/g, ".") 
-    .replace(/[^a-zA-Z0-9.]/g, "")
-    .replace(/\.+/g, ".")
-    .replace(/^\.+|\.+$/g, "") 
-    .toLowerCase()
-    .split(".")
-    .map((segment) => {
-     
-      return /^[a-zA-Z]/.test(segment) ? segment : "x" + segment;
-    })
-    .join(".") || "space.manus.app";
-
-const timestamp = bundleId.split(".").pop()?.replace(/^t/, "") ?? "";
-const schemeFromBundleId = `manus${timestamp}`;
-
 const env = {
   appName: "CineLog",
-  appSlug: "gym_app_mobile",
-  logoUrl: "https://d2xsxph8kpxj0f.cloudfront.net/310519663725537408/a8qQy93tk6fqUaWDgohYfx/cinelog-icon-hzkWV6E2VTDdtozWc4U3wq.png",
-  scheme: schemeFromBundleId,
-  iosBundleId: bundleId,
-  androidPackage: bundleId,
+  appSlug: "cinelog",
+  scheme: "cinelog",
+  iosBundleId: "com.ueg.cinelog",
+  androidPackage: "com.ueg.cinelog",
 };
 
 const config: ExpoConfig = {
@@ -41,9 +21,9 @@ const config: ExpoConfig = {
   ios: {
     supportsTablet: true,
     bundleIdentifier: env.iosBundleId,
-    "infoPlist": {
-        "ITSAppUsesNonExemptEncryption": false
-      }
+    infoPlist: {
+      ITSAppUsesNonExemptEncryption: false,
+    },
   },
   android: {
     adaptiveIcon: {
@@ -80,7 +60,7 @@ const config: ExpoConfig = {
     [
       "expo-audio",
       {
-        microphonePermission: "Allow $(PRODUCT_NAME) to access your microphone.",
+        microphonePermission: "Permitir que o CineLog acesse seu microfone.",
       },
     ],
     [

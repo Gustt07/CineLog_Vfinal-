@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const TMDB_API_KEY = process.env.EXPO_PUBLIC_TMDB_API_KEY ?? "";
+const TMDB_API_KEY =
+  process.env.EXPO_PUBLIC_TMDB_API_KEY ?? "c7aee01dbbb52384ea9f338cf633b2f8";
 const TMDB_IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
 
 const tmdbApi = axios.create({

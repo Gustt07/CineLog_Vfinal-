@@ -1,0 +1,39 @@
+# Dependencias
+node_modules/
+frontend/node_modules/
+
+# Variaveis de ambiente
+.env
+.env.*
+frontend/.env
+frontend/.env.*
+!.env.example
+!frontend/.env.example
+
+# Builds e artefatos
+backend/target/
+frontend/.expo/
+frontend/dist/
+frontend/web-build/
+frontend/.cache/
+*.jar
+!backend/.mvn/wrapper/maven-wrapper.jar
+*.war
+*.class
+*.tsbuildinfo
+
+# Pastas auxiliares fora da entrega
+frontend/server/
+frontend/references/
+frontend/template.json
+frontend/app-example/
+.codex/
+.agents/
+
+# IDE, sistema e logs
+.vscode/
+.idea/
+*.log
+logs/
+.DS_Store
+Thumbs.db

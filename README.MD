@@ -1,10 +1,50 @@
-# INSTRUÇÕES PARA A APRESENTAÇÃO (CINE LOG)
+# INSTRUÇÕES PARA A APRESENTAÇÃO (CINELOG)
 
-### 1. RODAR O BACKEND (SERVIDOR)
-Abra um terminal na pasta 'backend' e rode: `java -jar cinelog-backend.jar`
+## 1. RODAR O BACKEND (SERVIDOR)
 
-### 2. RODAR O FRONTEND (APP)
-Abra outro terminal na pasta 'frontend' e rode: `pnpm install` e depois `npx expo start`
+Antes de rodar, confirme que o JDK está instalado e que a variável `JAVA_HOME` está configurada.
 
-* **DICA:** Se o celular não conectar, use: `npx expo start --tunnel`
-* **LINK:** [Tutorial no YouTube](https://www.youtube.com/watch?v=BmORkbOxybo)
+No Windows, abra o Prompt de Comando ou o terminal do VS Code na pasta `backend` e rode:
+
+```cmd
+mvnw.cmd spring-boot:run
+```
+
+No Linux ou macOS, abra o Terminal na pasta `backend` e rode:
+
+```cmd
+./mvnw spring-boot:run
+```
+
+O servidor do backend deve ficar disponível em `http://localhost:8080`.
+
+## 2. RODAR O FRONTEND (APP)
+
+No Windows, abra outro Prompt de Comando ou terminal do VS Code na pasta `frontend` e rode:
+
+```cmd
+pnpm install
+npx expo start
+```
+
+Se estiver usando Linux ou macOS, os comandos são os mesmos no Terminal.
+
+O Expo normalmente abre o app em `http://localhost:8081`. Essa porta é do frontend, enquanto `http://localhost:8080` é a porta do backend.
+
+- **DICA:** Se o celular não conectar, use:
+
+```cmd
+npx expo start --tunnel
+```
+
+- **LINK:** [Tutorial no YouTube](https://www.youtube.com/watch?v=BmORkbOxybo)
+
+## 3. FUNCIONALIDADES PRINCIPAIS
+
+- Cadastro e login com Firebase.
+- Cadastro, edição, listagem e exclusão de filmes.
+- Avaliação por estrelas.
+- Favoritos.
+- Busca automática de filmes pela API do TMDB.
+- Aba Explorar com filmes em alta.
+- Dashboard com estatísticas e distribuição de notas.

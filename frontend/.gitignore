@@ -1,6 +1,6 @@
-# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+# Arquivos ignorados pelo Git
 
-# dependencies
+# Dependencias
 node_modules/
 
 # Expo
@@ -9,7 +9,7 @@ dist/
 web-build/
 expo-env.d.ts
 
-# Native
+# Nativo
 .kotlin/
 *.orig.*
 *.jks
@@ -21,25 +21,26 @@ expo-env.d.ts
 # Metro
 .metro-health-check*
 
-# debug
+# Depuracao
 npm-debug.*
 yarn-debug.*
 yarn-error.*
 
-# macOS
+# Sistema
 .DS_Store
 *.pem
 
-# local env files
+# Variaveis de ambiente locais
 .env
 .env*.local
+!.env.example
 
-# typescript
+# TypeScript
 *.tsbuildinfo
 
 app-example
 
-# generated native folders
+# Pastas nativas geradas
 /ios
 /android
 
@@ -57,11 +58,16 @@ logs
 # OS
 Thumbs.db
 
-# Build files
+# Arquivos de build
 *.tgz
 *.tar.gz
 .cache/
 
-# Webdev artifacts (checkpoint zips, migrations, etc.)
+# Artefatos temporarios
 .webdev/
 .project-config.json
+
+# Estruturas auxiliares fora do app CineLog
+server/
+references/
+template.json

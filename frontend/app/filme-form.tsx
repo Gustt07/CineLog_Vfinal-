@@ -233,7 +233,7 @@ export default function FilmeFormScreen() {
               className="bg-surface border border-border rounded-xl px-4 py-3 text-foreground"
               value={buscaTmdb}
               onChangeText={setBuscaTmdb}
-              placeholder={tmdbEnabled ? "Digite o nome do filme" : "Configure EXPO_PUBLIC_TMDB_API_KEY"}
+              placeholder="Digite o nome do filme"
               placeholderTextColor="#94A3B8"
               editable={tmdbEnabled}
             />
@@ -245,11 +245,6 @@ export default function FilmeFormScreen() {
               />
             ) : null}
           </View>
-          {!tmdbEnabled ? (
-            <Text className="text-xs text-muted mb-4">
-              Adicione sua chave em um arquivo .env como EXPO_PUBLIC_TMDB_API_KEY=sua_chave.
-            </Text>
-          ) : null}
           {tmdbError ? (
             <Text style={{ color: "#EF4444", fontSize: 12, marginBottom: 8 }}>{tmdbError}</Text>
           ) : null}
