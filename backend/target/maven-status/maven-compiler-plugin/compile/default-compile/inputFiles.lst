@@ -1,5 +1,0 @@
-/home/ubuntu/cinelog_clean/backend/src/main/java/com/ueg/web/SpringWebUegApplication.java
-/home/ubuntu/cinelog_clean/backend/src/main/java/com/ueg/web/controller/FilmeController.java
-/home/ubuntu/cinelog_clean/backend/src/main/java/com/ueg/web/repository/FilmeRepository.java
-/home/ubuntu/cinelog_clean/backend/src/main/java/com/ueg/web/model/Filme.java
-/home/ubuntu/cinelog_clean/backend/src/main/java/com/ueg/web/exception/ResourceNotFoundException.java
