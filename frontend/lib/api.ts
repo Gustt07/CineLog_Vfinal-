@@ -22,7 +22,6 @@ const getBaseUrl = () => {
 };
 
 const API_BASE_URL = getBaseUrl();
-console.log("Conectando na API:", API_BASE_URL);
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -48,8 +47,7 @@ export async function listarFilmes(): Promise<Filme[]> {
   try {
     const response = await api.get<Filme[]>("/filmes");
     return response.data || [];
-  } catch (error) {
-    console.error("Erro ao listar filmes:", error);
+  } catch {
     return [];
   }
 }

@@ -198,8 +198,7 @@ export default function FilmeFormScreen() {
         await inserirFilme(filmeData);
         universalAlert("Sucesso", "Filme adicionado.", () => router.replace("/"));
       }
-    } catch (error: any) {
-      console.error(error);
+    } catch {
       universalAlert("Erro ao salvar", "Verifique se o backend está rodando em http://127.0.0.1:8080.");
     } finally {
       setLoading(false);

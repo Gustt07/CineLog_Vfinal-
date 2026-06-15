@@ -88,8 +88,7 @@ export default function HomeScreen() {
     try {
       const data = await listarFilmes();
       setFilmes(data);
-    } catch (error) {
-      console.log("Erro ao carregar filmes:", error);
+    } catch {
       setFilmes([]);
     } finally {
       setLoading(false);

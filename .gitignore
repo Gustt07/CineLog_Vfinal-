@@ -14,6 +14,7 @@ frontend/.env.*
 backend/target/
 frontend/.expo/
 frontend/dist/
+frontend/dist-test/
 frontend/web-build/
 frontend/.cache/
 *.jar
@@ -29,6 +30,8 @@ frontend/template.json
 frontend/app-example/
 .codex/
 .agents/
+__cinelog_test_run/
+__cinelog_test.zip
 
 # IDE, sistema e logs
 .vscode/

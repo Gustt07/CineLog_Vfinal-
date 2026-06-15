@@ -18,5 +18,4 @@ config.resolver.resolveRequest = (context, moduleName, platform) => {
 
 module.exports = withNativeWind(config, {
   input: "./global.css",
-  forceWriteFileSystem: true,
 });

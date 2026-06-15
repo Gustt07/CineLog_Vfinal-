@@ -21,8 +21,8 @@ export default function FavoritosScreen() {
     try {
       const data = await listarFilmes();
       setFilmes(data.filter((f) => f.favorito));
-    } catch (error) {
-      console.log("Erro ao carregar favoritos:", error);
+    } catch {
+      setFilmes([]);
     } finally {
       setLoading(false);
       setRefreshing(false);

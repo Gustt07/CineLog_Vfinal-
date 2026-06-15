@@ -45,15 +45,26 @@ O servidor do backend deve ficar disponível em `http://localhost:8080`.
 No Windows, abra outro Prompt de Comando ou terminal do VS Code na pasta `frontend` e rode:
 
 ```cmd
+pnpm.cmd install
+npx.cmd expo start
+```
+
+No Linux ou macOS, abra o Terminal na pasta `frontend` e rode:
+
+```cmd
 pnpm install
 npx expo start
 ```
 
-Se estiver usando Linux ou macOS, os comandos são os mesmos no Terminal.
-
 O Expo normalmente abre o app em `http://localhost:8081`. Essa porta é do frontend, enquanto `http://localhost:8080` é a porta do backend.
 
-- **DICA:** Se o celular não conectar, use:
+- **DICA:** Se o celular não conectar no Windows, use:
+
+```cmd
+npx.cmd expo start --tunnel
+```
+
+No Linux ou macOS:
 
 ```cmd
 npx expo start --tunnel
